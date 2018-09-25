@@ -50,6 +50,7 @@ export default {
     range: ["01/09/2018", "01/10/2018"]
   })
 };
+</script>
 ```
 
 Per-component usage.
