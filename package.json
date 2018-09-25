@@ -1,6 +1,6 @@
 {
   "name": "@gravitano/vue-date-range-picker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vue.js Date Range Picker Plugin",
   "scripts": {
     "serve": "vue-cli-service serve",
