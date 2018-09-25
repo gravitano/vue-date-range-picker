@@ -14,6 +14,8 @@ yarn add @gravitano/vue-date-range-picker
 
 ## Usage
 
+Global usage.
+
 ```js
 // main.js
 import Vue from "vue";
@@ -31,6 +33,47 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount("#app");
+```
+
+After the plugin installed, you can use it like so:
+
+```html
+<template>
+  <div>
+    <date-range-picker v-model="range" />
+  </div>
+</template>
+
+<script>
+export default {
+  data: () => ({
+    range: ["01/09/2018", "01/10/2018"]
+  })
+};
+```
+
+Per-component usage.
+```html
+<template>
+  <div>
+    <date-range-picker v-model="range" />
+  </div>
+</template>
+
+<script>
+// import the package
+import DateRangePicker from "@gravitano/vue-date-range-picker";
+
+export default {
+  components: {
+    DateRangePicker
+  },
+  data: () => ({
+    range: ["01/09/2018", "01/10/2018"]
+  })
+};
+</script>
+
 ```
 
 # Props
