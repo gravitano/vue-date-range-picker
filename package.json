@@ -13,7 +13,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy:surge": "surge -p dist -d vue-date-range-picker.surge.sh",
+    "deploy": "npm run build && npm run deploy:surge"
   },
   "dependencies": {
     "daterangepicker": "^3.0.3",

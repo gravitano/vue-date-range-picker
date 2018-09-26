@@ -109,7 +109,33 @@ export default {
   })
 };
 </script>
+```
 
+### Single Date Picker
+
+```html
+<template>
+  <div>
+    <h3>Single Date Picker Example</h3>
+    <date-range-picker v-model="myDate" :options="options" />
+  </div>
+</template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  data: () => ({
+    myDate: "01/10/2018",
+    options: {
+      singleDatePicker: true,
+      // showDropdowns: true,
+      minYear: 2001,
+      maxYear: +moment().format("YYYY")
+    }
+  })
+};
+</script>
 ```
 
 
@@ -152,6 +178,6 @@ npm run test
 npm run lint
 ```
 
-## License
+# License
 
 MIT
