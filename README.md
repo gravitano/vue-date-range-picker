@@ -4,7 +4,7 @@
 
 ## Installation
 
-To install the new package, use one of those commands:
+To install the package, use one of those commands:
 
 ```
 npm i @gravitano/vue-date-range-picker
@@ -14,7 +14,9 @@ yarn add @gravitano/vue-date-range-picker
 
 ## Usage
 
-Global usage.
+### Global Usage
+
+Basically, just register the DateRangePicker component as vue plugin via `Vue.use` method.
 
 ```js
 // main.js
@@ -35,7 +37,7 @@ new Vue({
 }).$mount("#app");
 ```
 
-After the plugin installed, you can use it like so:
+Once the plugin installed, you can use it like so:
 
 ```html
 <template>
@@ -53,7 +55,10 @@ export default {
 </script>
 ```
 
-Per-component usage.
+### Per-component Usage
+
+If you want to use the DateRangePicker component only on certain components, you can do it like this:
+
 ```html
 <template>
   <div>
