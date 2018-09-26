@@ -1,16 +1,11 @@
 <template>
-    <div>
-        <input type="text" class="daterange" :class="className" :value="dateRangeText" />
-    </div>
+    <input type="text" :class="className" />
 </template>
 
 <script>
 import "daterangepicker/daterangepicker";
 import "daterangepicker/daterangepicker.css";
 import $ from "jquery";
-import moment from "moment";
-
-const now = moment();
 
 export default {
   name: "date-range-picker",
@@ -18,7 +13,9 @@ export default {
     value: {},
     options: {
       type: Object,
-      default: () => {}
+      default: function() {
+        return {};
+      }
     },
     format: {
       type: String,
@@ -33,14 +30,28 @@ export default {
     range: []
   }),
   computed: {
-    dateRangeText() {
-      return `${this.startDate} - ${this.endDate}`;
+    isSingleDatePicker() {
+      return this.options.singleDatePicker;
     },
     startDate() {
-      return this.range[0] || now.format(this.format);
+      if (this.isSingleDatePicker) {
+        return this.range;
+      }
+      return this.range[0];
     },
     endDate() {
-      return this.range[1] || now.format(this.format);
+      if (this.isSingleDatePicker) {
+        return this.range;
+      }
+      return this.range[1];
+    },
+    customOptions() {
+      return {
+        locale: {
+          format: this.format
+        },
+        ...this.options
+      };
     }
   },
   watch: {
@@ -57,18 +68,30 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      const options = {
-        locale: {
-          format: this.format
-        },
-        ...this.options
-      };
-      $(".daterange").daterangepicker(options, (start, end) => {
-        const startDate = start.format(this.format);
-        const endDate = end.format(this.format);
-        this.range = [startDate, endDate];
+      const el = $(this.$el);
+      el.daterangepicker(this.customOptions);
+      el.on("apply.daterangepicker", (event, picker) => {
+        const startDate = picker.startDate.format(this.format);
+        const endDate = picker.endDate.format(this.format);
+        if (this.isSingleDatePicker) {
+          this.range = startDate;
+        } else {
+          this.range = [startDate, endDate];
+        }
+      });
+      el.on("cancel.daterangepicker", () => {
+        if (this.isSingleDatePicker) {
+          this.range = "";
+        } else {
+          this.range = [];
+        }
       });
     });
+  },
+  beforeDestroy() {
+    $(this.$el)
+      .daterangepicker("hide")
+      .daterangepicker("destroy");
   }
 };
 </script>
