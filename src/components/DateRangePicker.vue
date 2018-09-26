@@ -63,7 +63,7 @@ export default {
         },
         ...this.options
       };
-      $(".daterange").daterangepicker(options, (start, end, label) => {
+      $(".daterange").daterangepicker(options, (start, end) => {
         const startDate = start.format(this.format);
         const endDate = end.format(this.format);
         this.range = [startDate, endDate];
