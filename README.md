@@ -79,8 +79,39 @@ export default {
   })
 };
 </script>
+```
+
+
+### Options
+
+```html
+<template>
+  <div>
+    <h3>DateRangePicker with options</h3>
+    <date-range-picker v-model="range" :options="options" />
+  </div>
+</template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  data: () => ({
+    range: ["01/09/2018", "01/10/2018"],
+    options: {
+      timePicker: true,
+      startDate: moment().startOf('hour'),
+      endDate: moment().startOf('hour').add(32, 'hour'),
+      locale: {
+        format: 'M/DD hh:mm A'
+      }
+    }
+  })
+};
+</script>
 
 ```
+
 
 # Props
 
@@ -91,7 +122,7 @@ export default {
 | className | String | -            | Additional class name for the input                                                                                          |
 | options   | Object | `{}`         | The [daterangepicker](http://www.daterangepicker.com)'s options. Learn more [here](http://www.daterangepicker.com/#options). |
 
-## Development Setup
+# Development Setup
 
 ```
 npm install
