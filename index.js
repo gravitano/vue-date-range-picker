@@ -1,9 +1,19 @@
-import DateRangePicker from "./src/components/DateRangePicker";
+"use strict";
 
-const VueDateRangePickerPlugin = {
-  install(Vue) {
-    Vue.component(DateRangePicker.name, DateRangePicker);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _DateRangePicker = require("./src/components/DateRangePicker");
+
+var _DateRangePicker2 = _interopRequireDefault(_DateRangePicker);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var VueDateRangePickerPlugin = {
+  install: function install(Vue) {
+    Vue.component(_DateRangePicker2.default.name, _DateRangePicker2.default);
   }
 };
 
-export default VueDateRangePickerPlugin;
+exports.default = VueDateRangePickerPlugin;
