@@ -80,8 +80,22 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+  text-align: center;
+}
+input {
+  padding: 8px;
+  border-radius: 8px;
+  border-color: #A9a9a9;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  transition: box-shadow .3s;
+}
+input:focus,
+input:active {
+  box-shadow: 0px 0px 8px #38335A;
 }
 .page-title {
-  text-align: center;
+  margin-bottom: 2em;
 }
 </style>
