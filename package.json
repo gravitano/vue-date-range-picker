@@ -18,15 +18,15 @@
     "deploy": "npm run build && npm run deploy:surge"
   },
   "dependencies": {
-    "daterangepicker": "^3.0.3",
-    "jquery": "^3.3.1",
-    "vue": "^2.5.17"
+    "daterangepicker": "^3.0.5",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.1",
-    "@vue/cli-plugin-eslint": "^3.0.4",
-    "@vue/cli-service": "^3.0.4",
-    "vue-template-compiler": "^2.5.17"
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,
