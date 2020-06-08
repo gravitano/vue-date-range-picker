@@ -2,30 +2,27 @@
   "name": "@gravitano/vue-date-range-picker",
   "version": "0.1.9",
   "description": "Vue.js Date Range Picker Plugin",
-  "keywords": [
-    "vue",
-    "vuejs",
-    "daterangepicker",
-    "date-range-picker",
-    "vue-date-range-picker",
-    "vue-daterangepicker"
-  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy:surge": "surge -p dist -d vue-date-range-picker.surge.sh",
-    "deploy": "npm run build && npm run deploy:surge"
+    "deploy": "npm run build && npm run deploy:surge",
+    "deploy:firebase": "npm run build && firebase deploy",
+    "deploy:surge": "surge -p dist -d vue-date-range-picker.surge.sh"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "daterangepicker": "^3.0.5",
     "jquery": "^3.5.1",
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.4.1",
+    "@vue/cli-plugin-eslint": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
@@ -51,5 +48,13 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+  ],
+  "keywords": [
+    "vue",
+    "vuejs",
+    "daterangepicker",
+    "date-range-picker",
+    "vue-date-range-picker",
+    "vue-daterangepicker"
   ]
 }
