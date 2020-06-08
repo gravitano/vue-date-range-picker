@@ -56,11 +56,25 @@ export default {
   },
   watch: {
     value(value) {
-      this.range = value;
+      const el = $(this.$el);
+      if (this.isSingleDatePicker) {
+        el.data('daterangepicker').setStartDate(value);
+      } else {
+        el.data('daterangepicker').setStartDate(value[0]);
+        el.data('daterangepicker').setEndDate(value[1]);
+      }
     },
     range(value) {
       this.$emit("change", value);
       this.$emit("input", value);
+    }
+  },
+  methods: {
+    show() {
+      $(this.$el).data('daterangepicker').show();
+    },
+    hide() {
+      $(this.$el).data('daterangepicker').hide();
     }
   },
   created() {
